@@ -1,0 +1,40 @@
+{
+  "name": "Javascript-Project",
+  "version": "1.0.0",
+  "description": "* Project Title * Background and Overview      * This is an interactive game that was inspired by Tetris that will challenge the player to think quickly about shape orientation in order to pass each level.      * The player will face a series of walls, each containing a small window for him or her to navigate through without hitting any of the walls. The player can move their character vertically and change their positioning to fit through the spaces. As the game progresses, the walls begin to increase in speed and also fluctuate in design and difficulty. If at any point, the player collides with a wall then the game ends. The running score will be kept throughout the game. * Functionality and MVP Features     * Create sprites and walls     * Wall functionality          * Have walls moving towards player continuously while populating new wall designs each time      * Player functionality         * Move player vertically, and different formations     * Create wall and player population      * Implement different levels      * Play audio continuously in background     * Keep a running score and save highest score to database",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolemhui/Javascript-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolemhui/Javascript-Project/issues"
+  },
+  "homepage": "https://github.com/nicolemhui/Javascript-Project#readme",
+  "devDependencies": {
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "canvas": "^2.2.0",
+    "css-loader": "^2.1.0",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
+  }
+}
