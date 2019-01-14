@@ -1,3 +1,9 @@
+.game-container {
+  margin: 0 auto;
+  align-items: center;
+  /* align-content: center; */
+}
+
 #canvas {
   margin: 0 auto;
 }
