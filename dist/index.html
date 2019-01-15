@@ -4,31 +4,40 @@
 <head>
   <title>Nikki's Javascript Project</title>
   <link rel="stylesheet" type="text/scss" href="../src/styles/app.css">
-  <!-- <img src="../src/images/flappy_bird.png" id="sprite"> -->
+  <link rel="icon" href="../src/images/kirby_right.png">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pontano+Sans" rel="stylesheet">
+
+  <!-- <div class="images"> -->
+    <img src="../src/images/cloud.png" id="cloud">
+    <img src="../src/images/gray_cloud.png" id="graycloud">
+    <img src="../src/images/kirby_left.png" id="kirbyleft">
+    <img src="../src/images/kirby_right.png" id="kirbyright">
+    <img src="../src/images/kirby_flying.jpg" id="kirbyflying">
+    <img src="../src/images/clouds_bg.png" id="bg">
+    <img src="../src/images/star_2.png" id="star">
+    <img src="../src/images/king_dedede.png" id="enemy1">
+    <img src="../src/images/bandana_waddle_dee.png" id="enemy2">
+  <!-- </div> -->
 </head>
 
 <body>
   <header>
-    <div class="images">
-      <img src="../src/images/cloud.png" id="cloud">
-      <img src="../src/images/gray_cloud.png" id="graycloud">
-      <img src="../src/images/kirby_left.png" id="kirbyleft">
-      <img src="../src/images/kirby_right.png" id="kirbyright">
-      <img src="../src/images/kirby_flying.jpg" id="kirbyflying">
-      <img src="../src/images/clouds_bg.png" id="bg">
-      <img src="../src/images/star_2.png" id="star">
-    </div>
   </header>
 
   <div class="game-container"> 
     <div class="instructions">
-      <div class="text">
-        <h3>Welcome to Cloud Jumper!</h3>
-      </div>
+      <h3>Welcome to Cloud Jumper!</h3>
+      <p> Your goal is to see Kirby jumping up into the sky by landing on clouds as he moves up. 
+        The white clouds will give Kirby an extra boost (and points) while the gray clouds will hinder his jump speed.
+        If you see a star along the way make sure to grab them and you'll get an extra 1000 points! 
+        Watch out for Bandana Waddle Dees who might be hiding along the way. If you hit them it's game over.
+
+        Press start and see how many points you can get!
+      </p>
+      <button id="start-btn">Start</button>
     </div>
-    <button id="start-btn">Start</button>
     <div class="canvas-container">
-      <canvas id="canvas" width="500" height="600"></canvas>
+      <canvas id="canvas" width="500" height="700"></canvas>
     </div>
   </div>
     

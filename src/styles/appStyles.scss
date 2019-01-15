@@ -2,9 +2,76 @@
 $theme-font:    verdana, sans-serif;
 
 body {
-  font: $theme-font;
-  background-color: $themeColor-Light;
+  background-image: url('/Users/Kenneth/Desktop/kirby-cloud-jumper/src/images/pastel_sky.jpg');
+  background-size: cover;
+  font-family: 'Pontano Sans', sans-serif;
+  // background-color: $themeColor-Light;
   h1, h2 {
-      color: $themeColor-Dark
+      // color: $themeColor-Dark
   }
+  margin: 0 auto;
+}
+
+
+.game-container {
+  margin-left: 300px;
+  margin-top: 100px;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.instructions {
+  /* background-color: #b7ecfe; */
+  background-color: rgba(173, 216, 230, 0.7);
+  width: 600px;
+  height: 700px;
+  // font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+
+  h3 {
+    font-family: $title-font;
+    font-size: 50px;
+    letter-spacing: .07em;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+
+#canvas {
+  margin: 0 auto;
+}
+
+.canvas-container {
+  width: 1000px;
+  height: 700px;
+  /* background-color: lightblue; */
+  margin: 0 auto;
+}
+
+img {
+  display: none;
+}
+
+#start-btn {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  width: 150px;
+  height: 60px;
+  border-radius: 200px;
+  border: 1px solid pink;
+  background-color: lightpink;
+}
+
+#start-btn:hover {
+  background-color: white;
+  color: lightpink;
+  font-weight: bold;
+  transition: 0.2s;
 }
