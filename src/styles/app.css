@@ -4,6 +4,10 @@
   /* align-content: center; */
 }
 
+.images {
+  /* display: none; */
+}
+
 #canvas {
   margin: 0 auto;
 }
