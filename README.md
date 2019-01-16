@@ -1,7 +1,7 @@
 # Cloud Jumper
 Cloud Jumper is a game inspired by Doodle Jump built using Javascript and HTML5 Canvas. 
 
-[Play Cloud Jumper Live!](dist/index.html)
+[Play Cloud Jumper Live!](https://nicolemhui.github.io/cloud-jumper/)
 
 ![Game Over](/src/images/game_over.png)
 
