@@ -22,11 +22,9 @@ body {
 }
 
 .instructions {
-  /* background-color: #b7ecfe; */
   background-color: rgba(173, 216, 230, 0.7);
   width: 600px;
   height: 700px;
-  // font-family: Arial, Helvetica, sans-serif;
   color: white;
   text-align: center;
 
@@ -37,7 +35,11 @@ body {
   }
   p {
     font-size: 20px;
+    width: 400px;
+    margin-top: 15px;
+    margin-left: 40px;
   }
+
 }
 
 
@@ -48,7 +50,6 @@ body {
 .canvas-container {
   width: 1000px;
   height: 700px;
-  /* background-color: lightblue; */
   margin: 0 auto;
 }
 
@@ -57,13 +58,14 @@ img {
 }
 
 #start-btn {
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-family: 'Luckiest Guy', sans-serif;
   color: white;
-  letter-spacing: .03em;
+  letter-spacing: .07em;
+  padding-top: 10px;
   text-transform: uppercase;
   width: 150px;
-  height: 60px;
+  height: 70px;
   border-radius: 200px;
   border: 1px solid pink;
   background-color: lightpink;
@@ -74,4 +76,18 @@ img {
   color: lightpink;
   font-weight: bold;
   transition: 0.2s;
+}
+
+.developer-icons {
+  margin-top: 30px;
+  
+  i {
+    font-size: 35px;
+    color: rgba(170, 77, 250, 0.5);
+  }
+
+  i:hover {
+    color: rgba(170, 77, 250, 0.8);;
+    transition: 0.3ms;
+  }
 }

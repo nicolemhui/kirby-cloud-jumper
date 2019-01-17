@@ -1,23 +1,32 @@
-/* .game-container {
+/* body {
+  background-image: url('/Users/Kenneth/Desktop/cloud-jumper/src/images/pastel_sky.jpg');
+  background-size: cover;
+  font-family: 'Pontano Sans', sans-serif;
   margin: 0 auto;
-  align-items: center;
+}
+
+.game-container {
+  margin-left: 300px;
+  margin-top: 100px;
   display: flex;
 }
 
 .instructions {
-  background-color: lightblue;
-  width: 300px;
+  background-color: rgba(173, 216, 230, 0.7);
+  width: 600px;
   height: 700px;
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
+  text-align: center;
+
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 50px;
+  letter-spacing: .07em;
 }
 
-.instructions p {
-  font-size: 18px;
+p {
+  font-size: 20px;
 }
 
 #canvas {

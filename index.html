@@ -3,44 +3,40 @@
 
 <head>
   <title>Cloud Jumper</title>
-  <link rel="stylesheet" type="text/scss" href="./src/styles/app.css">
-  <link rel="icon" href="./src/images/cloud_icon.png">
+  <link rel="stylesheet" type="text/scss" href="src/styles/app.css">
+  <link rel="icon" href="src/images/cloud_icon.png">
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pontano+Sans" rel="stylesheet">
-
-  <!-- <div class="images"> -->
-    <!-- <img src="../src/images/cloud.png" id="cloud"> -->
-    <!-- <img src="../src/images/gray_cloud.png" id="graycloud"> -->
-    <!-- <img src="../src/images/kirby_left.png" id="kirbyleft"> -->
-    <!-- <img src="../src/images/kirby_right.png" id="kirbyright"> -->
-    <img src="./src/images/clouds_bg.png" id="bg">
-    <!-- <img src="../src/images/star_2.png" id="star"> -->
-    <!-- <img src="../src/images/king_dedede.png" id="enemy1"> -->
-    <!-- <img src="../src/images/bandana_waddle_dee.png" id="enemy2"> -->
-  <!-- </div> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+    crossorigin="anonymous">
+  <img src="../cloud-jumper/src/images/clouds_bg.png" id="bg">
 </head>
 
 <body>
   <header>
   </header>
-
-  <div class="game-container"> 
+  
+  <div class="game-container">
     <div class="instructions">
       <h3>Welcome to Cloud Jumper!</h3>
-      <p> Your goal is to see Kirby jumping up into the sky by landing on clouds as he moves up. 
-        The white clouds will give Kirby an extra boost (and points) while the gray clouds will hinder his jump speed.
-        If you see a star along the way make sure to grab them and you'll get an extra 1000 points! 
-        Watch out for Bandana Waddle Dees who might be hiding along the way. If you hit them it's game over.
-
+      <p> Use the left and right arrow keys to help Kirby jump as high into the sky as he can by bouncing on the clouds. 
+        Be careful for Bandana Waddle Dees along the way. If you hit them or fall below the screen then it's game over. 
+        The white clouds will give Kirby an extra boost (and points) while the gray clouds will hinder his jump speed. </p>
+      <p>If you see a star along the way make sure to grab them and you'll get an extra 1000 points!</p>
         Press start and see how many points you can get!
       </p>
       <button id="start-btn">Start</button>
+
+      <div class="developer-icons">
+        <a href="https://github.com/nicolemhui"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/nicolemhui/"><i class="fab fa-linkedin"></i></a>
+      </div>
     </div>
     <div class="canvas-container">
       <canvas id="canvas" width="500" height="700"></canvas>
     </div>
   </div>
-    
-  <script src="./dist/main.js"></script>
+
+  <script src="dist/main.js"></script>
 </body>
 
 </html>
