@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Cloud Jumper</title>
+  <link rel="stylesheet" type="text/scss" href="src/styles/app.css">
+  <link rel="icon" href="src/images/cloud_icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pontano+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+    crossorigin="anonymous">
+  <img src="../cloud-jumper/src/images/clouds_bg.png" id="bg">
+</head>
+
+<body>
+  <header>
+  </header>
+  
+  <div class="game-container">
+    <div class="instructions">
+      <h3>Welcome to Cloud Jumper!</h3>
+      <p> Use the left and right arrow keys to help Kirby jump as high into the sky as he can by bouncing on the clouds. 
+        Be careful for Bandana Waddle Dees along the way. If you hit them or fall below the screen then it's game over. 
+        The white clouds will give Kirby an extra boost (and points) while the gray clouds will hinder his jump speed. </p>
+      <p>If you see a star along the way make sure to grab them and you'll get an extra 1000 points!</p>
+        Press start and see how many points you can get!
+      </p>
+      <button id="start-btn">Start</button>
+
+      <div class="developer-icons">
+        <a href="https://github.com/nicolemhui"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/nicolemhui/"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="canvas-container">
+      <canvas id="canvas" width="500" height="700"></canvas>
+    </div>
+  </div>
+
+  <script src="dist/main.js"></script>
+</body>
+
+</html>
