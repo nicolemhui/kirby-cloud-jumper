@@ -44,23 +44,16 @@ body {
 
   h4 {
     font-family: $title-font;
-    // color: rgb(231, 120, 212);
-    // color: rgba(76, 19, 247, 0.639);
     color: #e581ff;
-    // color: #463ec4;
     font-size: 22px;
     letter-spacing: 0.3em;
   }
 
   p {
-    // color: rgba(255, 100, 219, 0.5);
-    // color: rgba(98, 59, 216, 0.639);
     color: #966ff5;
     font-size: 16px;
     width: 90%;
     margin: 0 auto;
-    // margin-top: 15px;
-    // margin-left: 40px;
 
   }
   
@@ -148,6 +141,14 @@ body {
   color: lightpink;
   font-weight: bold;
   transition: 0.2s;
+}
+
+// #start-btn::after {
+//   display: hidden;
+// }
+
+.hidden-div {
+  display: none;
 }
 
 .developer-icons {
