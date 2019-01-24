@@ -4,18 +4,17 @@ $theme-font:    verdana, sans-serif;
 body {
   background-image: url('http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg');
   background-size: cover;
+  // font-family: Arial;
   font-family: 'Pontano Sans', sans-serif;
-  // background-color: $themeColor-Light;
-  h1, h2 {
-      // color: $themeColor-Dark
-  }
   margin: 0 auto;
 }
 
-
 .game-container {
+  // margin-left: 25%;
   margin-left: 300px;
+  // margin-top: 10%;
   margin-top: 100px;
+  // margin: 0 auto;
   display: flex;
   // justify-content: center;
   // align-items: center;
@@ -25,21 +24,94 @@ body {
   background-color: rgba(173, 216, 230, 0.7);
   width: 600px;
   height: 700px;
-  color: white;
+  align-items: center;
   text-align: center;
+  color: white;
 
   h3 {
     font-family: $title-font;
-    font-size: 50px;
+    font-size: 45px;
     letter-spacing: .07em;
-  }
-  p {
-    font-size: 20px;
-    width: 400px;
-    margin-top: 15px;
-    margin-left: 40px;
+    background: red;
+    background: -webkit-linear-gradient(left, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
+    background: -o-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
+    background: -moz-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
+    background: linear-gradient(to right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0px;
   }
 
+  h4 {
+    font-family: $title-font;
+    // color: rgb(231, 120, 212);
+    // color: rgba(76, 19, 247, 0.639);
+    color: #e581ff;
+    // color: #463ec4;
+    font-size: 22px;
+    letter-spacing: 0.3em;
+  }
+
+  p {
+    // color: rgba(255, 100, 219, 0.5);
+    // color: rgba(98, 59, 216, 0.639);
+    color: #966ff5;
+    font-size: 16px;
+    width: 90%;
+    margin: 0 auto;
+    // margin-top: 15px;
+    // margin-left: 40px;
+
+  }
+  
+  span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10%;
+    margin-right: 10px;
+  }
+
+  #white-cloud {
+    width: 40px;
+    height: 40px;
+    margin-left: 10%;
+    margin-right: 0px;
+  }
+
+  ul {
+    list-style: none;
+    text-align: left;
+
+    li {
+      // color: white;
+      color: #966ff5;
+    }
+  }
+
+}
+
+.arrows {
+  font-size: 30px;
+  display: inline-block;
+  margin: 0px 20px;
+
+  .fab {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: blue;
+  }
+}
+
+#press-start {
+  color: white;
 }
 
 
@@ -51,10 +123,10 @@ body {
   width: 1000px;
   height: 700px;
   margin: 0 auto;
-}
 
-img {
-  display: none;
+  img {
+    display: none;
+  }
 }
 
 #start-btn {
@@ -83,11 +155,14 @@ img {
   
   i {
     font-size: 35px;
-    color: rgba(170, 77, 250, 0.5);
+    color: #6992de;
+    // color: rgba(170, 77, 250, 0.5);
   }
 
   i:hover {
-    color: rgba(170, 77, 250, 0.8);;
+    color: rgba(38, 86, 206, 0.7);
+    // color: #3b849f;
+    // color: rgba(170, 77, 250, 0.8);
     transition: 0.3ms;
   }
 }
