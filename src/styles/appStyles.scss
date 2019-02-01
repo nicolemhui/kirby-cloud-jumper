@@ -4,20 +4,14 @@ $theme-font:    verdana, sans-serif;
 body {
   background-image: url('http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg');
   background-size: cover;
-  // font-family: Arial;
   font-family: 'Pontano Sans', sans-serif;
   margin: 0 auto;
 }
 
 .game-container {
-  // margin-left: 25%;
   margin-left: 300px;
-  // margin-top: 10%;
   margin-top: 100px;
-  // margin: 0 auto;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 
 .instructions {
@@ -47,6 +41,7 @@ body {
     color: #e581ff;
     font-size: 22px;
     letter-spacing: 0.3em;
+    margin-bottom: 12px;
   }
 
   p {
@@ -62,11 +57,11 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+    font-family: "Luckiest Guy", cursive;
   }
 
   img {
     width: 30px;
-    height: 30px;
     margin-left: 10%;
     margin-right: 10px;
   }
@@ -83,7 +78,6 @@ body {
     text-align: left;
 
     li {
-      // color: white;
       color: #966ff5;
     }
   }
@@ -143,10 +137,6 @@ body {
   transition: 0.2s;
 }
 
-// #start-btn::after {
-//   display: hidden;
-// }
-
 .hidden-div {
   display: none;
 }
@@ -157,13 +147,10 @@ body {
   i {
     font-size: 35px;
     color: #6992de;
-    // color: rgba(170, 77, 250, 0.5);
   }
 
   i:hover {
     color: rgba(38, 86, 206, 0.7);
-    // color: #3b849f;
-    // color: rgba(170, 77, 250, 0.8);
     transition: 0.3ms;
   }
 }
