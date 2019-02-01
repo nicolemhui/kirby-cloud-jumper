@@ -132,10 +132,10 @@ class Cloud {
   move() {  
     if (this.moving === 1) {
       if (this.moveDirection === "y") {
-        this.y += 2;
+        this.y += 1.5;
         this.checkBoundaries();
       } else if (this.moveDirection === "x") {
-        this.x += 2;
+        this.x += 1.5;
         this.checkBoundaries();
       }
     }
@@ -226,7 +226,8 @@ class Enemy {
     cloud.src = '../cloud-jumper/src/images/cloud.png';
 
     const enemy = new Image();
-    enemy.src = '../cloud-jumper/src/images/bandana_waddle_dee.png';
+    // enemy.src = '../cloud-jumper/src/images/moonja.png';
+    enemy.src = '../cloud-jumper/src/images/bandana1.png';
 
     ctx.drawImage(cloud, this.x - 30, this.y + 10, this.w + 80, this.h + 50);
     ctx.drawImage(enemy, this.x, this.y, this.w, this.h);
@@ -330,13 +331,13 @@ class Game {
   }
 
   addStars() {
-    const firstStar = new _star__WEBPACK_IMPORTED_MODULE_2__["default"](100, 100, 50, 50);
+    const firstStar = new _star__WEBPACK_IMPORTED_MODULE_2__["default"](100, 100, 65, 65);
     this.add(firstStar);
     return this.stars;
   }
  
   addEnemies() {
-    const firstEnemy = new _enemy__WEBPACK_IMPORTED_MODULE_3__["default"](600, 300, 50, 50);
+    const firstEnemy = new _enemy__WEBPACK_IMPORTED_MODULE_3__["default"](600, 200, 50, 75);
     this.add(firstEnemy);
     return this.enemies;
   }
@@ -347,7 +348,7 @@ class Game {
     let secondCloud = new _cloud__WEBPACK_IMPORTED_MODULE_1__["default"](150, 550, 80, 50);
     this.add(secondCloud);
     
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 6; i++) {
       let newCloud = new _cloud__WEBPACK_IMPORTED_MODULE_1__["default"](this.getRandomNum(400), this.getRandomNum(500), 80, 50);
       this.add(newCloud);
     }
@@ -366,7 +367,7 @@ class Game {
   checkCollision(object) {
     const player = this.players[0];
 
-    if (object instanceof _cloud__WEBPACK_IMPORTED_MODULE_1__["default"]) {
+    if ((object instanceof _cloud__WEBPACK_IMPORTED_MODULE_1__["default"]) && player.descending) {
       let cloud = object;
 
       if ((player.y + player.h <= cloud.y + (cloud.h / 2) + 20) && (player.y + player.h >= cloud.y + 5)) {
@@ -402,7 +403,7 @@ class Game {
   }
 
   disappear(object) {
-    object.x = 700;
+    object.y = 800;
   }
 
   onLanding(cloud) {
@@ -411,7 +412,7 @@ class Game {
 
     if (cloud.type === 1) {
       this.score += 100;
-      this.player.jump(6);
+      this.player.jump(7);
     } else if (cloud.type === 0) {
       this.score += 60;
       this.player.jump(5);
@@ -430,7 +431,7 @@ class Game {
       this.clouds.forEach( (cloud, index) => {
         cloud.y -= this.player.jumpSpeed;
 
-        if (cloud.y > 650) {
+        if (cloud.y > 700) {
           this.clouds[index] = new _cloud__WEBPACK_IMPORTED_MODULE_1__["default"](this.getRandomNum(400), this.getRandomNum(500), 80, 50);
         }
       });
@@ -439,17 +440,17 @@ class Game {
           star.y -= this.player.jumpSpeed;
 
           if (star.y > this.height * 4) {
-            this.stars[idx] = new _star__WEBPACK_IMPORTED_MODULE_2__["default"](this.getRandomNum(400), this.getRandomNum(100), 50, 50);
+            this.stars[idx] = new _star__WEBPACK_IMPORTED_MODULE_2__["default"](this.getRandomNum(400), this.getRandomNum(100), 65, 65);
           }
-        })
+        });
         
         this.enemies.forEach ((enemy, idx) => {
           enemy.y -= this.player.jumpSpeed;
 
           if (enemy.y > this.height * 3) {
-            this.enemies[idx] = new _enemy__WEBPACK_IMPORTED_MODULE_3__["default"](this.getRandomNum(400), this.getRandomNum(100), 50, 50);
+            this.enemies[idx] = new _enemy__WEBPACK_IMPORTED_MODULE_3__["default"](this.getRandomNum(400), this.getRandomNum(100), 50, 75);
           }
-        })
+        });
           
     }
   }
@@ -559,7 +560,7 @@ class GameView {
     const canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "#966ff5";
+    ctx.fillStyle = "#e581ff";
     ctx.font = "20px 'Luckiest Guy'";
     ctx.fillText("Score: " + this.game.score, 10, 20);
   }
@@ -726,7 +727,7 @@ class Star {
     let ctx = canvasEl.getContext("2d");
     
     const star = new Image();
-    star.src = '../cloud-jumper/src/images/star.png';
+    star.src = '../cloud-jumper/src/images/star1.png';
 
     ctx.drawImage(star, this.x, this.y, this.w - 20, this.h - 20);
   }
@@ -764,7 +765,7 @@ exports.push([module.i, "/* body {\n  background-image: url('/Users/Kenneth/Desk
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "body {\n  background-image: url(\"http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg\");\n  background-size: cover;\n  font-family: 'Pontano Sans', sans-serif;\n  margin: 0 auto; }\n\n.game-container {\n  margin-left: 300px;\n  margin-top: 100px;\n  display: flex; }\n\n.instructions {\n  background-color: rgba(173, 216, 230, 0.7);\n  width: 600px;\n  height: 700px;\n  align-items: center;\n  text-align: center;\n  color: white; }\n  .instructions h3 {\n    font-family: \"Luckiest Guy\", cursive;\n    font-size: 45px;\n    letter-spacing: .07em;\n    background: red;\n    background: -webkit-linear-gradient(left, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: -o-linear-gradient(right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: -moz-linear-gradient(right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: linear-gradient(to right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    margin-bottom: 0px; }\n  .instructions h4 {\n    font-family: \"Luckiest Guy\", cursive;\n    color: #e581ff;\n    font-size: 22px;\n    letter-spacing: 0.3em; }\n  .instructions p {\n    color: #966ff5;\n    font-size: 16px;\n    width: 90%;\n    margin: 0 auto; }\n  .instructions span {\n    color: #2f48ac;\n    font-size: 18px;\n    font-weight: bold;\n    text-transform: uppercase; }\n  .instructions img {\n    width: 30px;\n    height: 30px;\n    margin-left: 10%;\n    margin-right: 10px; }\n  .instructions #white-cloud {\n    width: 40px;\n    height: 40px;\n    margin-left: 10%;\n    margin-right: 0px; }\n  .instructions ul {\n    list-style: none;\n    text-align: left; }\n    .instructions ul li {\n      color: #966ff5; }\n\n.arrows {\n  font-size: 30px;\n  display: inline-block;\n  margin: 0px 20px; }\n  .arrows .fab {\n    width: 40px;\n    height: 40px;\n    background-color: black;\n    color: blue; }\n\n#press-start {\n  color: white; }\n\n#canvas {\n  margin: 0 auto; }\n\n.canvas-container {\n  width: 1000px;\n  height: 700px;\n  margin: 0 auto; }\n  .canvas-container img {\n    display: none; }\n\n#start-btn {\n  font-size: 35px;\n  font-family: 'Luckiest Guy', sans-serif;\n  color: white;\n  letter-spacing: .07em;\n  padding-top: 10px;\n  text-transform: uppercase;\n  width: 150px;\n  height: 70px;\n  border-radius: 200px;\n  border: 1px solid pink;\n  background-color: lightpink; }\n\n#start-btn:hover {\n  background-color: white;\n  color: lightpink;\n  font-weight: bold;\n  transition: 0.2s; }\n\n.hidden-div {\n  display: none; }\n\n.developer-icons {\n  margin-top: 30px; }\n  .developer-icons i {\n    font-size: 35px;\n    color: #6992de; }\n  .developer-icons i:hover {\n    color: rgba(38, 86, 206, 0.7);\n    transition: 0.3ms; }\n", "",{"version":3,"sources":["/Users/Kenneth/Desktop/cloud-jumper/src/styles/src/styles/appStyles.scss","/Users/Kenneth/Desktop/cloud-jumper/src/styles/src/styles/themeColors.scss"],"names":[],"mappings":"AAGA;EACE,oGAAmG;EACnG,uBAAsB;EAEtB,wCAAuC;EACvC,eAAc,EACf;;AAED;EAEE,mBAAkB;EAElB,kBAAiB;EAEjB,cAAa,EAGd;;AAED;EACE,2CAA0C;EAC1C,aAAY;EACZ,cAAa;EACb,oBAAmB;EACnB,mBAAkB;EAClB,aAAY,EA8Db;EApED;IASI,qCCzBgC;ID0BhC,gBAAe;IACf,sBAAqB;IACrB,gBAAe;IACf,uFAA6I;IAC7I,mFAAyI;IACzI,qFAA2I;IAC3I,mFAAyI;IACzI,8BAA6B;IAC7B,qCAAoC;IACpC,mBAAkB,EACnB;EApBH;IAuBI,qCCvCgC;IDwChC,eAAc;IACd,gBAAe;IACf,sBAAqB,EACtB;EA3BH;IA8BI,eAAc;IACd,gBAAe;IACf,WAAU;IACV,eAAc,EAEf;EAnCH;IAsCI,eAAuB;IACvB,gBAAe;IACf,kBAAiB;IACjB,0BAAyB,EAC1B;EA1CH;IA6CI,YAAW;IACX,aAAY;IACZ,iBAAgB;IAChB,mBAAkB,EACnB;EAjDH;IAoDI,YAAW;IACX,aAAY;IACZ,iBAAgB;IAChB,kBAAiB,EAClB;EAxDH;IA2DI,iBAAgB;IAChB,iBAAgB,EAMjB;IAlEH;MAgEM,eAAc,EACf;;AAKL;EACE,gBAAe;EACf,sBAAqB;EACrB,iBAAgB,EAQjB;EAXD;IAMI,YAAW;IACX,aAAY;IACZ,wBAAuB;IACvB,YAAW,EACZ;;AAGH;EACE,aAAY,EACb;;AAGD;EACE,eAAc,EACf;;AAED;EACE,cAAa;EACb,cAAa;EACb,eAAc,EAKf;EARD;IAMI,cAAa,EACd;;AAGH;EACE,gBAAe;EACf,wCAAuC;EACvC,aAAY;EACZ,sBAAqB;EACrB,kBAAiB;EACjB,0BAAyB;EACzB,aAAY;EACZ,aAAY;EACZ,qBAAoB;EACpB,uBAAsB;EACtB,4BAA2B,EAC5B;;AAED;EACE,wBAAuB;EACvB,iBAAgB;EAChB,kBAAiB;EACjB,iBAAgB,EACjB;;AAMD;EACE,cAAa,EACd;;AAED;EACE,iBAAgB,EAcjB;EAfD;IAII,gBAAe;IACf,eAAc,EAEf;EAPH;IAUI,8BAA6B;IAG7B,kBAAiB,EAClB","file":"appStyles.scss","sourcesContent":["@import 'themeColors';\n$theme-font:    verdana, sans-serif;\n\nbody {\n  background-image: url('http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg');\n  background-size: cover;\n  // font-family: Arial;\n  font-family: 'Pontano Sans', sans-serif;\n  margin: 0 auto;\n}\n\n.game-container {\n  // margin-left: 25%;\n  margin-left: 300px;\n  // margin-top: 10%;\n  margin-top: 100px;\n  // margin: 0 auto;\n  display: flex;\n  // justify-content: center;\n  // align-items: center;\n}\n\n.instructions {\n  background-color: rgba(173, 216, 230, 0.7);\n  width: 600px;\n  height: 700px;\n  align-items: center;\n  text-align: center;\n  color: white;\n\n  h3 {\n    font-family: $title-font;\n    font-size: 45px;\n    letter-spacing: .07em;\n    background: red;\n    background: -webkit-linear-gradient(left, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: -o-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: -moz-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: linear-gradient(to right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    margin-bottom: 0px;\n  }\n\n  h4 {\n    font-family: $title-font;\n    color: #e581ff;\n    font-size: 22px;\n    letter-spacing: 0.3em;\n  }\n\n  p {\n    color: #966ff5;\n    font-size: 16px;\n    width: 90%;\n    margin: 0 auto;\n\n  }\n  \n  span {\n    color: rgb(47, 72, 172);\n    font-size: 18px;\n    font-weight: bold;\n    text-transform: uppercase;\n  }\n\n  img {\n    width: 30px;\n    height: 30px;\n    margin-left: 10%;\n    margin-right: 10px;\n  }\n\n  #white-cloud {\n    width: 40px;\n    height: 40px;\n    margin-left: 10%;\n    margin-right: 0px;\n  }\n\n  ul {\n    list-style: none;\n    text-align: left;\n\n    li {\n      // color: white;\n      color: #966ff5;\n    }\n  }\n\n}\n\n.arrows {\n  font-size: 30px;\n  display: inline-block;\n  margin: 0px 20px;\n\n  .fab {\n    width: 40px;\n    height: 40px;\n    background-color: black;\n    color: blue;\n  }\n}\n\n#press-start {\n  color: white;\n}\n\n\n#canvas {\n  margin: 0 auto;\n}\n\n.canvas-container {\n  width: 1000px;\n  height: 700px;\n  margin: 0 auto;\n\n  img {\n    display: none;\n  }\n}\n\n#start-btn {\n  font-size: 35px;\n  font-family: 'Luckiest Guy', sans-serif;\n  color: white;\n  letter-spacing: .07em;\n  padding-top: 10px;\n  text-transform: uppercase;\n  width: 150px;\n  height: 70px;\n  border-radius: 200px;\n  border: 1px solid pink;\n  background-color: lightpink;\n}\n\n#start-btn:hover {\n  background-color: white;\n  color: lightpink;\n  font-weight: bold;\n  transition: 0.2s;\n}\n\n// #start-btn::after {\n//   display: hidden;\n// }\n\n.hidden-div {\n  display: none;\n}\n\n.developer-icons {\n  margin-top: 30px;\n  \n  i {\n    font-size: 35px;\n    color: #6992de;\n    // color: rgba(170, 77, 250, 0.5);\n  }\n\n  i:hover {\n    color: rgba(38, 86, 206, 0.7);\n    // color: #3b849f;\n    // color: rgba(170, 77, 250, 0.8);\n    transition: 0.3ms;\n  }\n}","\n// $themeColor-Light: #f3e2c7;\n// $themeColor-Dark: #b68d4c;\n\n// $theme-font: 'Luckiest Guy', cursive;\n$theme-font: 'Pontano Sans', sans-serif; \n$title-font: 'Luckiest Guy', cursive;"],"sourceRoot":""}]);
+exports.push([module.i, "body {\n  background-image: url(\"http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg\");\n  background-size: cover;\n  font-family: 'Pontano Sans', sans-serif;\n  margin: 0 auto; }\n\n.game-container {\n  margin-left: 300px;\n  margin-top: 100px;\n  display: flex; }\n\n.instructions {\n  background-color: rgba(173, 216, 230, 0.7);\n  width: 600px;\n  height: 700px;\n  align-items: center;\n  text-align: center;\n  color: white; }\n  .instructions h3 {\n    font-family: \"Luckiest Guy\", cursive;\n    font-size: 45px;\n    letter-spacing: .07em;\n    background: red;\n    background: -webkit-linear-gradient(left, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: -o-linear-gradient(right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: -moz-linear-gradient(right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    background: linear-gradient(to right, #ffcf31, #d6f787, #69c2c2, #a5a5dc, #e9ace9);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    margin-bottom: 0px; }\n  .instructions h4 {\n    font-family: \"Luckiest Guy\", cursive;\n    color: #e581ff;\n    font-size: 22px;\n    letter-spacing: 0.3em;\n    margin-bottom: 12px; }\n  .instructions p {\n    color: #966ff5;\n    font-size: 16px;\n    width: 90%;\n    margin: 0 auto; }\n  .instructions span {\n    color: #2f48ac;\n    font-size: 18px;\n    font-weight: bold;\n    text-transform: uppercase;\n    font-family: \"Luckiest Guy\", cursive; }\n  .instructions img {\n    width: 30px;\n    margin-left: 10%;\n    margin-right: 10px; }\n  .instructions #white-cloud {\n    width: 40px;\n    height: 40px;\n    margin-left: 10%;\n    margin-right: 0px; }\n  .instructions ul {\n    list-style: none;\n    text-align: left; }\n    .instructions ul li {\n      color: #966ff5; }\n\n.arrows {\n  font-size: 30px;\n  display: inline-block;\n  margin: 0px 20px; }\n  .arrows .fab {\n    width: 40px;\n    height: 40px;\n    background-color: black;\n    color: blue; }\n\n#press-start {\n  color: white; }\n\n#canvas {\n  margin: 0 auto; }\n\n.canvas-container {\n  width: 1000px;\n  height: 700px;\n  margin: 0 auto; }\n  .canvas-container img {\n    display: none; }\n\n#start-btn {\n  font-size: 35px;\n  font-family: 'Luckiest Guy', sans-serif;\n  color: white;\n  letter-spacing: .07em;\n  padding-top: 10px;\n  text-transform: uppercase;\n  width: 150px;\n  height: 70px;\n  border-radius: 200px;\n  border: 1px solid pink;\n  background-color: lightpink; }\n\n#start-btn:hover {\n  background-color: white;\n  color: lightpink;\n  font-weight: bold;\n  transition: 0.2s; }\n\n.hidden-div {\n  display: none; }\n\n.developer-icons {\n  margin-top: 30px; }\n  .developer-icons i {\n    font-size: 35px;\n    color: #6992de; }\n  .developer-icons i:hover {\n    color: rgba(38, 86, 206, 0.7);\n    transition: 0.3ms; }\n", "",{"version":3,"sources":["/Users/Kenneth/Desktop/cloud-jumper/src/styles/src/styles/appStyles.scss","/Users/Kenneth/Desktop/cloud-jumper/src/styles/src/styles/themeColors.scss"],"names":[],"mappings":"AAGA;EACE,oGAAmG;EACnG,uBAAsB;EACtB,wCAAuC;EACvC,eAAc,EACf;;AAED;EACE,mBAAkB;EAClB,kBAAiB;EACjB,cAAa,EACd;;AAED;EACE,2CAA0C;EAC1C,aAAY;EACZ,cAAa;EACb,oBAAmB;EACnB,mBAAkB;EAClB,aAAY,EA8Db;EApED;IASI,qCCnBgC;IDoBhC,gBAAe;IACf,sBAAqB;IACrB,gBAAe;IACf,uFAA6I;IAC7I,mFAAyI;IACzI,qFAA2I;IAC3I,mFAAyI;IACzI,8BAA6B;IAC7B,qCAAoC;IACpC,mBAAkB,EACnB;EApBH;IAuBI,qCCjCgC;IDkChC,eAAc;IACd,gBAAe;IACf,sBAAqB;IACrB,oBAAmB,EACpB;EA5BH;IA+BI,eAAc;IACd,gBAAe;IACf,WAAU;IACV,eAAc,EAEf;EApCH;IAuCI,eAAuB;IACvB,gBAAe;IACf,kBAAiB;IACjB,0BAAyB;IACzB,qCAAoC,EACrC;EA5CH;IA+CI,YAAW;IACX,iBAAgB;IAChB,mBAAkB,EACnB;EAlDH;IAqDI,YAAW;IACX,aAAY;IACZ,iBAAgB;IAChB,kBAAiB,EAClB;EAzDH;IA4DI,iBAAgB;IAChB,iBAAgB,EAKjB;IAlEH;MAgEM,eAAc,EACf;;AAKL;EACE,gBAAe;EACf,sBAAqB;EACrB,iBAAgB,EAQjB;EAXD;IAMI,YAAW;IACX,aAAY;IACZ,wBAAuB;IACvB,YAAW,EACZ;;AAGH;EACE,aAAY,EACb;;AAGD;EACE,eAAc,EACf;;AAED;EACE,cAAa;EACb,cAAa;EACb,eAAc,EAKf;EARD;IAMI,cAAa,EACd;;AAGH;EACE,gBAAe;EACf,wCAAuC;EACvC,aAAY;EACZ,sBAAqB;EACrB,kBAAiB;EACjB,0BAAyB;EACzB,aAAY;EACZ,aAAY;EACZ,qBAAoB;EACpB,uBAAsB;EACtB,4BAA2B,EAC5B;;AAED;EACE,wBAAuB;EACvB,iBAAgB;EAChB,kBAAiB;EACjB,iBAAgB,EACjB;;AAED;EACE,cAAa,EACd;;AAED;EACE,iBAAgB,EAWjB;EAZD;IAII,gBAAe;IACf,eAAc,EACf;EANH;IASI,8BAA6B;IAC7B,kBAAiB,EAClB","file":"appStyles.scss","sourcesContent":["@import 'themeColors';\n$theme-font:    verdana, sans-serif;\n\nbody {\n  background-image: url('http://www.jakpost.travel/imgfiles/full/31/315598/pastel-sky-wallpaper.jpg');\n  background-size: cover;\n  font-family: 'Pontano Sans', sans-serif;\n  margin: 0 auto;\n}\n\n.game-container {\n  margin-left: 300px;\n  margin-top: 100px;\n  display: flex;\n}\n\n.instructions {\n  background-color: rgba(173, 216, 230, 0.7);\n  width: 600px;\n  height: 700px;\n  align-items: center;\n  text-align: center;\n  color: white;\n\n  h3 {\n    font-family: $title-font;\n    font-size: 45px;\n    letter-spacing: .07em;\n    background: red;\n    background: -webkit-linear-gradient(left, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: -o-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: -moz-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    background: linear-gradient(to right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n    margin-bottom: 0px;\n  }\n\n  h4 {\n    font-family: $title-font;\n    color: #e581ff;\n    font-size: 22px;\n    letter-spacing: 0.3em;\n    margin-bottom: 12px;\n  }\n\n  p {\n    color: #966ff5;\n    font-size: 16px;\n    width: 90%;\n    margin: 0 auto;\n\n  }\n  \n  span {\n    color: rgb(47, 72, 172);\n    font-size: 18px;\n    font-weight: bold;\n    text-transform: uppercase;\n    font-family: \"Luckiest Guy\", cursive;\n  }\n\n  img {\n    width: 30px;\n    margin-left: 10%;\n    margin-right: 10px;\n  }\n\n  #white-cloud {\n    width: 40px;\n    height: 40px;\n    margin-left: 10%;\n    margin-right: 0px;\n  }\n\n  ul {\n    list-style: none;\n    text-align: left;\n\n    li {\n      color: #966ff5;\n    }\n  }\n\n}\n\n.arrows {\n  font-size: 30px;\n  display: inline-block;\n  margin: 0px 20px;\n\n  .fab {\n    width: 40px;\n    height: 40px;\n    background-color: black;\n    color: blue;\n  }\n}\n\n#press-start {\n  color: white;\n}\n\n\n#canvas {\n  margin: 0 auto;\n}\n\n.canvas-container {\n  width: 1000px;\n  height: 700px;\n  margin: 0 auto;\n\n  img {\n    display: none;\n  }\n}\n\n#start-btn {\n  font-size: 35px;\n  font-family: 'Luckiest Guy', sans-serif;\n  color: white;\n  letter-spacing: .07em;\n  padding-top: 10px;\n  text-transform: uppercase;\n  width: 150px;\n  height: 70px;\n  border-radius: 200px;\n  border: 1px solid pink;\n  background-color: lightpink;\n}\n\n#start-btn:hover {\n  background-color: white;\n  color: lightpink;\n  font-weight: bold;\n  transition: 0.2s;\n}\n\n.hidden-div {\n  display: none;\n}\n\n.developer-icons {\n  margin-top: 30px;\n  \n  i {\n    font-size: 35px;\n    color: #6992de;\n  }\n\n  i:hover {\n    color: rgba(38, 86, 206, 0.7);\n    transition: 0.3ms;\n  }\n}","\n// $themeColor-Light: #f3e2c7;\n// $themeColor-Dark: #b68d4c;\n\n// $theme-font: 'Luckiest Guy', cursive;\n$theme-font: 'Pontano Sans', sans-serif; \n$title-font: 'Luckiest Guy', cursive;"],"sourceRoot":""}]);
 
 
 
