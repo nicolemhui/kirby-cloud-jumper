@@ -26,22 +26,34 @@ body {
     font-family: $title-font;
     font-size: 45px;
     letter-spacing: .07em;
-    background: red;
-    background: -webkit-linear-gradient(left, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
-    background: -o-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
-    background: -moz-linear-gradient(right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
-    background: linear-gradient(to right, rgb(255, 207, 49) , rgb(214, 247, 135), rgb(105, 194, 194), rgb(165, 165, 220), rgb(233, 172, 233));
+    background: -webkit-linear-gradient(to right, #ddb03e, #4bda67, #32d0d0, #9f9ff3, #e165e1);
+    background: -o-linear-gradient(to right, #ddb03e, #4bda67, #32d0d0, #9f9ff3, #e165e1);
+    background: -moz-linear-gradient(to right, #ddb03e, #4bda67, #32d0d0, #9f9ff3, #e165e1);
+    background: linear-gradient(to right, #ddb03e, #4bda67, #32d0d0, #9f9ff3, #e165e1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0px;
+    position: relative;
+  }
+
+  h3:after {
+      background: none;
+      content: attr(data-text);
+      left: 0;
+      position: absolute;
+      text-shadow: 3px 2px 10px rgba(0, 0, 0, 0.33);
+      top: 0;
+      z-index: -1;
   }
 
   h4 {
     font-family: $title-font;
-    color: #e581ff;
+    color: #e165e1;
+    // color: #e581ff;
     font-size: 22px;
     letter-spacing: 0.3em;
     margin-bottom: 12px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.20);
   }
 
   p {
@@ -53,11 +65,12 @@ body {
   }
   
   span {
-    color: rgb(47, 72, 172);
+    color: #8369c2;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Luckiest Guy", cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.20);
   }
 
   img {
@@ -126,14 +139,14 @@ body {
   width: 150px;
   height: 70px;
   border-radius: 200px;
-  border: 1px solid pink;
-  background-color: lightpink;
+  border: #e165e1;
+  background-color: #e165e1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #start-btn:hover {
   background-color: white;
-  color: lightpink;
-  font-weight: bold;
+  color: #e165e1;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -147,11 +160,11 @@ body {
   
   i {
     font-size: 35px;
-    color: #6992de;
+    color: #9d7ced;
   }
 
   i:hover {
-    color: rgba(38, 86, 206, 0.7);
+    color: #8c55d4;
     transition: 0.3ms;
   }
 }
